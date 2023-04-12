@@ -1,6 +1,7 @@
 ﻿using Kusto.Data;
 using Kusto.Data.Common;
 using Kusto.Data.Net.Client;
+using NLog.Azure.Kusto;
 using NLog.Config;
 using Xunit;
 
@@ -103,7 +104,7 @@ namespace NLog.Azure.Kusto.Tests
                             ApplicationKey = Environment.GetEnvironmentVariable("APP_KEY") ?? throw new ArgumentNullException("APP_KEY not set"),
                             TableName = m_generatedTableName,
                             UseStreamingIngestion = "false",
-                            AuthenticationModes = "AadApplicationKey"
+                            AuthenticationMode = "AadApplicationKey"
                         };
                         var config = new LoggingConfiguration();
                         config.AddTarget("adxtarget", target);
@@ -123,7 +124,7 @@ namespace NLog.Azure.Kusto.Tests
                             ApplicationKey = Environment.GetEnvironmentVariable("APP_KEY") ?? throw new ArgumentNullException("APP_KEY not set"),
                             TableName = m_generatedTableName,
                             UseStreamingIngestion = "true",
-                            AuthenticationModes = "AadApplicationKey"
+                            AuthenticationMode = "AadApplicationKey"
                         };
                         var config = new LoggingConfiguration();
                         config.AddTarget("adxtarget", target);

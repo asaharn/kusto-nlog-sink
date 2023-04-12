@@ -68,11 +68,6 @@ namespace NLog.Azure.Kusto
         /// </summary>
         public string ManagedIdentityClientId { get; set; }
 
-        /// <summary>
-        /// Sets to true if Default Authentication Mode is enabled
-        /// </summary>
-        public bool DefaultAuthenticationMode { get; set; }
-
         public static readonly Dictionary<string, AuthenticationMode> AuthenticationModeMap = new Dictionary<string, AuthenticationMode>
         {
                 { Constants.AUTHENTICATION_TYPES.AadApplicationKey, AuthenticationMode.AadApplicationKey },
@@ -100,7 +95,7 @@ namespace NLog.Azure.Kusto
 
         protected KustoConnectionStringBuilder GetKcsbWithAuthentication(KustoConnectionStringBuilder kcsb)
         {
-            if(kcsb == null)
+            if (kcsb == null)
             {
                 throw new ArgumentException("KustoConnectionStringBuilder cannot be null");
             }
@@ -114,7 +109,7 @@ namespace NLog.Azure.Kusto
                     }
                 case AuthenticationMode.ManagedIdentity:
                     {
-                        if (String.IsNullOrEmpty(this.ManagedIdentityClientId))
+                        if (string.IsNullOrEmpty(this.ManagedIdentityClientId))
                             kcsb = kcsb.WithAadSystemManagedIdentity();
                         else kcsb = kcsb.WithAadUserManagedIdentity(this.ManagedIdentityClientId);
                         break;

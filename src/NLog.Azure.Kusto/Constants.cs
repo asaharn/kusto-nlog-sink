@@ -1,5 +1,4 @@
-﻿
-namespace NLog.Azure.Kusto
+﻿namespace NLog.Azure.Kusto
 {
     public static class Constants
     {
@@ -15,6 +14,6 @@ namespace NLog.Azure.Kusto
         {
             public const string AadApplicationKey = "AadApplicationKey";
             public const string ManagedIdentity = "AadManagedIdentity";
-        } 
+        }
     }
 }

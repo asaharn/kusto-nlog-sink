@@ -351,3 +351,7 @@ MigrationBackup/
 
 *.runsettings
 *packages
+*launchSettings.json
+src/UpgradeReport.sarif
+src/upgrade-assistant.clef
+src/AnalysisReport.sarif
